@@ -221,7 +221,8 @@ def ATM():
     return render_template("ATM.html", form=form, current_amount=current_amount)
 
 
-@app.route('/SignUp')
+@app.route('/SignUp'methods=["GET,"POST"])
+@admin_required
 def sign_up():
     form = SignUpForm()
     if form.validate_on_submit():
