@@ -256,7 +256,7 @@ def sign_up():
 
     return render_template('sign_up.html', form=form)
 
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
+    print(f"Starting on port {port}")  # <-- Add this line to be sure
     app.run(host="0.0.0.0", port=port)
