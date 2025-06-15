@@ -109,8 +109,17 @@
 <div class="section">
   <h2>What’s Inside?</h2>
   <ul>
-    <li>🎮 Cousin Games</li>
-    <li>💬 Secret Chat Room</li>
+    <li>
+      🎮 Cousin Games
+      <button onclick="toggleGames()">Show Games</button>
+      <ul id="gamesList" style="display: none; margin-top: 10px;">
+        <li>🎰 Casino</li>
+        <li>🃏 Cards</li>
+        <li>🏠 Monopoly</li>
+        <li>✈️ Flight Simulator</li>
+      </ul>
+    </li>
+        <li>💬 Secret Chat Room</li>
     <li>💰 Cousin Bank (ATM & UPI)</li>
   </ul>
 </div>
@@ -129,5 +138,12 @@
 <footer>
   <p>&copy; 2025 TheCousins Club | Made with 💙 by Cousins</p>
 </footer>
+<script>
+  function toggleGames() {
+    const list = document.getElementById("gamesList");
+    list.style.display = list.style.display === "none" ? "block" : "none";
+  }
+</script>
+
 
 {% endblock %}
