@@ -8,6 +8,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from flask import Flask, redirect, url_for, render_template, request, flash, session#type:ignore
 import os
 
+app.config['DEBUG'] = True  # Add this line
+
+
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
