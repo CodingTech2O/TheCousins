@@ -8,7 +8,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from flask import Flask, redirect, url_for, render_template, request, flash, session#type:ignore
 import os
 
-app.config['DEBUG'] = True  # Add this line
+
 
 
 def login_required(f):
@@ -54,6 +54,7 @@ class SignUpForm(FlaskForm):
 
 app=Flask(__name__)
 app.config['SECRET_KEY'] = 'TheCousins'
+app.config['DEBUG'] = True  # Add this line
 @app.route('/',methods=['GET','POST'])
 def home():
     
