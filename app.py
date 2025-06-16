@@ -19,14 +19,17 @@ def login_required(f):
             return redirect(url_for('login'))
         return f(*args, **kwargs)
     return decorated_function
-@login_required
 def admin_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
+        if 'user' not in session:
+            flash('You must be logged in to access that page.', 'warning')
+            return redirect(url_for('login'))
         if session['type'] != "Admin":
             return "Access Denied"
         return f(*args, **kwargs)
     return decorated_function
+
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
